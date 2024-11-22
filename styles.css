@@ -1,0 +1,193 @@
+  /* Variables */
+
+body.modo-oscuro {
+  --color-header: #191e2b;
+  --color-background: #30343f;
+  --color-panel: #252935;
+
+  --color-boton-default: #393e49;
+  --color-boton-default-hover: #4e5565;
+
+  --color-text: #ffffff;
+
+  --font-primary: 'Open Sans', sans-serif;
+
+  --border-radius: 3px;
+}
+
+body.modo-claro {
+  --color-header: #e0e0e0;
+  --color-background: #eeeeee;
+  --color-panel: #fafafa;
+
+  --color-boton-default: #e0e0e0;
+  --color-boton-default-hover: #bdbdbd;
+
+  --color-text: #424242;
+  --color-title-panel: rgb(33 33 33 / 80%);
+  --color-title-control: rgb(33 33 33 / 70%);
+
+  --font-primary: 'Open Sans', sans-serif;
+
+  --border-radius: 3px;
+}
+
+/* html */
+
+html,
+  body {
+    height: 100vh;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    overflow: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  input,
+  button,
+  select,
+  textarea {
+    border: 0;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    background-color: transparent;
+    display: block;
+    outline: 0;
+  }
+  
+  
+/* Layout*/
+  
+  header {
+    background-color: var(--color-header);
+  }
+  
+
+
+  /* Components */
+  
+  /* Botón */
+
+  .boton {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .button-default {
+    background-color: var(--color-boton-default);
+  }
+
+.boton-texto:hover,
+.boton-texto:focus,
+.button-default:hover,
+.button-default:focus {
+  background-color: var(--color-boton-default-hover);
+}
+
+.boton-icono-texto {
+  margin-right: 5px;
+  display: block;
+}
+
+
+  /* Botones */
+
+
+
+.modo-claro .boton-tema-claro,
+.modo-oscuro .boton-tema-oscuro {
+  display: flex;
+}
+
+.modo-oscuro .boton-tema-claro,
+.modo-claro .boton-tema-oscuro {
+  display: none;
+}
+
+.contenedor-botones {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.contenedor-botones .button {
+  margin: 2.5px;
+}
+
+/* que es button:first-child */
+.contenedor-botones .button:first-child {
+  margin-left: 0;
+}
+
+.contenedor-botones .button:last-child {
+  margin-right: 0;
+}
+
+  /* Panel Control */
+
+  /* Elements */
+  
+  .app-titulo {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+    margin: 10px;
+    letter-spacing: -1px;
+  }
+
+  .panel-botones {
+    justify-content: center;
+  }
+
+.boton {
+    margin: 0;
+    width: calc(100% / 3 - 10px / 3);
+    min-width: 0;
+  }
+
+
+  /* Utils */
+
+
+  /* RESPONSIVE*/
+
+  @media (max-width: 700px) {
+    .app-titulo {
+      font-size: 26px;
+    }
+    .panel {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    .panel {
+      display: block;
+      box-shadow: none;
+    }
+    .panel-close-button {
+      display: none;
+    }
+  }
+  
+
