@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Edita tus memes y descárgate tus creaciones con esta aplicación">
-  <title>Editor de memes</title>
+  <title>Editor de memes MB</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
@@ -29,3 +29,49 @@
       <i class="fas fa-lightbulb boton-icono-texto" aria-hidden="true"></i>Modo claro</button>
   </div>
 </header>
+<!-- TERMMINA HEADER-->
+<div class="editor-contenedor">  <!-- cambiar -->
+
+    <!-- CANVAS LISTOOOOOO-->
+    <main class="meme-contenedor">
+      <div class="canvas-meme" id="canvas-meme">
+        <p id="texto-superior" class="texto-meme">TOP TEXT</p>
+        <div src="" alt="" id="imagen-meme" aria-label="Imagen de meme"></div>
+        <p id="texto-inferior" class="texto-meme">BOTTOM TEXT</p>
+      </div>
+      <button type="button" class="boton boton-texto" id="boton-descargar-meme"><i class="fas fa-download button-icon-text"
+        aria-hidden="true"></i>Descargar meme</button>
+    </main>
+    <!-- TERMMINA CANVAS-->
+
+    <!-- ASIDE-->
+
+      
+      <aside class="panel-oculto" id="panel">
+        <button class="panel-boton-cerrar" id="panel-boton-cerrar" aria-label="Cerrar panel">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+
+         <!-- 
+        ***************************************************
+                         IMG PANEL
+        *************************************************** 
+        --> 
+        <section class="panel-img" id="panel-img">
+          <h2 class="panel-titulo">IMAGEN</h2>
+          <div class="panel-control">
+            <h3 class="panel-control-title">URL</h3>
+            <input type="text" class="panel-control-input" id="url-img-input" aria-label="URL de imagen">
+          </div>
+        </section>
+      </aside>
+
+      
+    <!-- TERMINA ASIDE-->
+</div>
+</body>
+
+</html>
+
+
+
