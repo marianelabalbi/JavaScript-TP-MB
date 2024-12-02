@@ -1,4 +1,4 @@
-  /* Variables */
+/* Variables */
 
 body.modo-oscuro {
   --color-header: #191e2b;
@@ -69,16 +69,63 @@ html,
   }
   
   
-/* Layout*/
+    /*
+    *********************************** 
+                  Layout
+    ***********************************
+  */
   
   header {
+    width: 100%;
     background-color: var(--color-header);
   }
+
+  .editor-contenedor {
+    display: flex;
+    flex-grow: 1;
+  } /* cambiar */
+
+  .meme-contenedor {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background);
+    padding: 0 20px;
+  }
+
+  #panel {
+    width: 260px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--color-panel);
+    padding: 30px 15px;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+  .panel-control-input {
+    width: 100%;
+    height: 36px;
+    background-color: var(--color-boton-default);
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+  }
   
+  .panel-control-input:hover,
+  .panel-control-input:focus {
+    background-color: var(--color-boton-default-hover);
+  }
 
 
-  /* Components */
-  
   /* Botón */
 
   .boton {
@@ -109,9 +156,7 @@ html,
   display: block;
 }
 
-
   /* Botones */
-
 
 
 .modo-claro .boton-tema-claro,
@@ -134,7 +179,7 @@ html,
   margin: 2.5px;
 }
 
-/* que es button:first-child */
+/* button:first-child  se utiliza para seleccionar un botón que sea el primer hijo directo de su elemento padre.*/
 .contenedor-botones .button:first-child {
   margin-left: 0;
 }
@@ -144,9 +189,154 @@ html,
 }
 
   /* Panel Control */
-
-  /* Elements */
   
+  /* Por defecto, el panel está oculto */
+
+#panel {
+  width: 30%;
+}
+.panel-oculto {
+  transform: translateX(100%); /* Mueve el panel fuera de la vista */
+  transition: transform 0.3s ease-in-out; /* Animación suave */
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 260px;
+  background-color: var(--color-panel);
+  box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  overflow: auto;
+}
+
+
+.panel-control-checkbox {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.panel-control-slider {
+  margin-top: 15px;
+}
+
+/* los INPUT no es de JS????????????? */
+
+
+.panel-control-slider > input[type='range'] {
+  transition: 0.2s;
+}
+
+.panel-control-slider > input[type='range']:focus {
+  background-color: #9e9e9e;
+}
+
+.panel-control-color {
+  position: relative;
+  height: 36px;
+  display: flex;
+}
+
+.panel-control-color > input[type='color'] {
+  width: 100%;
+}
+
+.panel-control-color > input[type='color']::-webkit-color-swatch {
+  width: 18px;
+  max-width: 18px;
+  margin: 0;
+}
+
+.panel-control-color > input[type='color']::-webkit-color-swatch-wrapper {
+  display: flex;
+  height: 36px;
+  border-radius: 5px;
+  padding: 8px 10px;
+  background-color: var(--color-boton-default);
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* FOCUS no es de JS????????????? */
+.panel-control-color > input[type='color']:focus::-webkit-color-swatch-wrapper {
+  background-color: var(--color-boton-default-hover);
+}
+
+.panel-control-color > span {
+  position: absolute;
+  left: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+}
+
+.panel-control-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel-control-columns .panel-control-column {
+  width: calc(50% - 5px);
+  margin-bottom: 0;
+}
+
+
+/* Cuando el panel está visible */
+.panel-visible {
+  transform: translateX(0); /* Lo trae de vuelta a la vista */
+}
+
+
+  .panel-titulo{
+    color: var(--color-title-panel);
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  /* .panel-boton-cerrar {
+    position: fixed;
+    top: 15px;
+    left: 873px;
+    border-radius: 3px;
+    cursor: pointer;
+  } */
+  
+/* SOLUCION AI */
+  .panel-boton-cerrar {
+    position: absolute; /* Cambia a absoluto para relacionarlo al contenedor */
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-boton-default);
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    z-index: 20; /* Asegúrate de que esté por encima de otros elementos */
+}
+/* SOLUCION AI */
+
+  .panel-boton-cerrar:focus,
+  .ppanel-boton-cerrar:hover {
+    background-color: var(--color-boton-default-hover);
+  }
+
+
+
+
+  .panel-control {
+    margin-bottom: 20px;
+  }
+  
+  .panel-control-title {
+    color: var(--color-title-control);
+    margin-bottom: 8px;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+
   .app-titulo {
     text-align: center;
     font-size: 36px;
@@ -159,15 +349,68 @@ html,
     justify-content: center;
   }
 
+  #texto-superior{
+    top: 0;
+  }
+
+  #texto-inferior {
+    bottom: 0;
+  }
+
+  #imagen-meme {
+    width: 100%;
+    flex-grow: 1;
+    background-size: cover;
+  }
+
+
+
 .boton {
     margin: 0;
     width: calc(100% / 3 - 10px / 3);
     min-width: 0;
   }
 
+  .canvas-meme {
+    width: 100%;
+    max-width: 610px;
+    height: 610px;
+    background-color: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 
-  /* Utils */
+  .texto-meme {
+    width: 100%;
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 35px 50px;
+    font-size: 40px;
+    font-weight: 800;
+    font-family: Verdana;
+  }
 
+  #boton-descargar-meme {
+    margin-top: 30px;
+    padding: 15px 15px;
+    height: auto;
+    background-color: #2e7d32;
+    color: white;
+  }
+  
+  #boton-descargar-meme:hover,
+  #boton-descargar-meme:focus {
+    background-color: #1b5e20;
+  }
+  
+
+  /*
+    *********************************** 
+                Utils
+    ***********************************
+  */
 
   /* RESPONSIVE*/
 
@@ -185,9 +428,50 @@ html,
       display: block;
       box-shadow: none;
     }
-    .panel-close-button {
+    /* .panel-boton-cerrar {
       display: none;
-    }
+    } */
   }
   
 
+
+/* desde aca no esta verificados estilos */
+
+  #text-size-input {
+    width: calc(50% - 2.5px);
+    margin-right: 2.5px;
+  }
+
+
+
+  #default-filters-button {
+    margin-top: 30px;
+  }
+
+
+  .buttons-alignment {
+    width: calc(50% - 2.5px);
+    justify-content: space-between;
+    margin-left: 2.5px;
+  }
+  
+  .buttons-alignment .button {
+    margin: 0;
+    width: calc(100% / 3 - 10px / 3);
+    min-width: 0;
+  }
+  
+  /*
+    *********************************** 
+                Utils
+    ***********************************
+  */
+  
+  .oculto {
+    display: none;
+  }
+  
+  .flex-container {
+    display: flex;
+    align-items: center;
+  }

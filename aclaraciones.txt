@@ -1,0 +1,31 @@
+------------------------------------
+
+const descargarMeme = () => {
+  domtoimage.toBlob($('canvas-meme')).then(function (blob) {
+    saveAs(blob, 'mi-meme.png')
+  })
+}
+
+función llamada descargarMeme, que permite descargar un elemento HTML (como un meme generado en la página) como una imagen en formato PNG. Vamos a desglosar el código:
+
+Desglose del código
+const descargarMeme = () => { ... }:
+Declara una función llamada descargarMeme utilizando la sintaxis de función flecha.
+No toma ningún parámetro, pero realiza una acción al ejecutarse: convertir un elemento HTML en una imagen y descargarla.
+domtoimage.toBlob($('canvas-meme')):
+domtoimage: Es una biblioteca JavaScript que se utiliza para convertir elementos DOM (como divs, imágenes, o canvas) en imágenes. Aquí convierte el contenido de un elemento HTML a un archivo de imagen en formato blob.
+toBlob(element): Este método de domtoimage toma un elemento HTML como entrada y lo convierte en un Blob (un objeto que representa datos binarios en JavaScript, ideal para archivos como imágenes).
+$('canvas-meme'): Aquí se utiliza una función personalizada ($) para seleccionar el elemento con el ID canvas-meme del DOM. Este es el elemento que se convertirá en imagen.
+.then(function (blob) { ... }):
+Promesa (Promise): toBlob devuelve una promesa. Cuando la conversión del elemento DOM a un Blob se completa, se ejecuta el bloque .then.
+function (blob) { ... }: Es una función que recibe como parámetro el resultado de la promesa, en este caso el Blob que representa la imagen generada.
+saveAs(blob, 'mi-meme.png'):
+saveAs: Es una función proporcionada por la biblioteca FileSaver.js. Se utiliza para descargar archivos en el navegador.
+blob: El primer argumento es el objeto Blob generado en el paso anterior, que contiene los datos binarios de la imagen.
+'mi-meme.png': El segundo argumento es el nombre con el que se descargará el archivo, en este caso, "mi-meme.png".
+Cómo funciona en conjunto
+Se selecciona el elemento HTML con ID canvas-meme mediante $('canvas-meme').
+La biblioteca domtoimage convierte ese elemento en un Blob.
+Una vez que el Blob se genera correctamente, se llama a la función saveAs para descargarlo como un archivo PNG con el nombre mi-meme.png.
+
+------------------------------------
