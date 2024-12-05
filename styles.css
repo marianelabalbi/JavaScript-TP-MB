@@ -48,6 +48,8 @@ html,
     overflow: hidden;
   }
   
+
+  
   * {
     box-sizing: border-box;
   }
@@ -94,6 +96,10 @@ html,
     background-color: var(--color-background);
     padding: 0 20px;
   }
+  
+  .meme-contenedor.transparente {
+    background-color: transparent; /* Fondo transparente */
+  }
 
   #panel {
     width: 260px;
@@ -128,6 +134,8 @@ html,
 
   /* Botón */
 
+
+  
   .boton {
     height: 36px;
     display: flex;
@@ -151,6 +159,11 @@ html,
   background-color: var(--color-boton-default-hover);
 }
 
+.boton-img:hover,
+.boton-img:focus {
+  background-color: var(--color-boton-default-hover);
+}
+
 .boton-icono-texto {
   margin-right: 5px;
   display: block;
@@ -168,6 +181,7 @@ html,
 .modo-claro .boton-tema-oscuro {
   display: none;
 }
+
 
 .contenedor-botones {
   display: flex;
@@ -321,9 +335,6 @@ html,
     background-color: var(--color-boton-default-hover);
   }
 
-
-
-
   .panel-control {
     margin-bottom: 20px;
   }
@@ -405,6 +416,19 @@ html,
     background-color: #1b5e20;
   }
   
+  /* #no-outline-button {
+    background-color: #ccc;
+  }
+  
+  #light-outline-button {
+    background-color: #fff;
+    color: black;
+  }
+  
+  #dark-outline-button {
+    background-color: #000;
+    color: white;
+  } */
 
   /*
     *********************************** 
