@@ -1,17 +1,15 @@
-/* Variables */
+/* ****************************************************
+VARIABLES
+*************************************************** */
 
 body.modo-oscuro {
   --color-header: #191e2b;
   --color-background: #30343f;
   --color-panel: #252935;
-
   --color-boton-default: #393e49;
   --color-boton-default-hover: #4e5565;
-
-  --color-text: #ffffff;
-
-  --font-primary: 'Open Sans', sans-serif;
-
+  --color-texto: #ffffff;
+  --tipografia-primaria: 'Open Sans', sans-serif;
   --border-radius: 3px;
 }
 
@@ -19,20 +17,18 @@ body.modo-claro {
   --color-header: #e0e0e0;
   --color-background: #eeeeee;
   --color-panel: #fafafa;
-
   --color-boton-default: #e0e0e0;
   --color-boton-default-hover: #bdbdbd;
-
-  --color-text: #424242;
+  --color-texto: #424242;
   --color-title-panel: rgb(33 33 33 / 80%);
   --color-title-control: rgb(33 33 33 / 70%);
-
-  --font-primary: 'Open Sans', sans-serif;
-
+  --tipografia-primaria: 'Open Sans', sans-serif;
   --border-radius: 3px;
 }
 
-/* html */
+/* ****************************************************
+HTML
+*************************************************** */
 
 html,
   body {
@@ -40,122 +36,113 @@ html,
     margin: 0;
   }
   
-  body {
-    display: flex;
-    flex-direction: column;
-    color: var(--color-text);
-    font-family: var(--font-primary);
-    overflow: hidden;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-texto);
+  font-family: var(--tipografia-primaria);
+  overflow: hidden;
+}
   
+* {
+  box-sizing: border-box;
+}
 
+p {
+  margin: 0;
+}
   
-  * {
-    box-sizing: border-box;
-  }
-  
-  p {
-    margin: 0;
-  }
-  
-  input,
-  button,
-  select,
-  textarea {
-    border: 0;
-    color: var(--color-text);
-    font-family: var(--font-primary);
-    background-color: transparent;
-    display: block;
-    outline: 0;
-  }
-  
-  
-    /*
-    *********************************** 
-                  Layout
-    ***********************************
-  */
-  
-  header {
-    width: 100%;
-    background-color: var(--color-header);
-  }
+input,
+button,
+select,
+textarea {
+  border: 0;
+  color: var(--color-texto);
+  font-family: var(--tipografia-primaria);
+  background-color: transparent;
+  display: block;
+  outline: 0;
+}
 
-  .editor-contenedor {
-    display: flex;
-    flex-grow: 1;
-  } /* cambiar */
+header {
+  width: 100%;
+  background-color: var(--color-header);
+}
 
-  .meme-contenedor {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-background);
-    padding: 0 20px;
-  }
+.editor-contenedor {
+  display: flex;
+  flex-grow: 1;
+} 
+
+.meme-contenedor {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background);
+  padding: 0 20px;
+}
   
-  .meme-contenedor.transparente {
-    background-color: transparent; /* Fondo transparente */
-  }
+.meme-contenedor.transparente {
+  background-color: transparent; /* Fondo transparente */
+}
 
-  #panel {
-    width: 260px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: var(--color-panel);
-    padding: 30px 15px;
-    overflow: auto;
-    position: fixed;
-    top: 0;
-    right: 0;
-    box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
-    z-index: 10;
-  }
-  .panel-control-input {
-    width: 100%;
-    height: 36px;
-    background-color: var(--color-boton-default);
-    border-radius: var(--border-radius);
-    transition: background-color 0.2s;
-    padding: 5px 10px;
-    margin-bottom: 5px;
-  }
+#panel {
+  width: 260px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--color-panel);
+  padding: 30px 15px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.panel-control-input {
+  width: 100%;
+  height: 36px;
+  background-color: var(--color-boton-default);
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
   
-  .panel-control-input:hover,
-  .panel-control-input:focus {
-    background-color: var(--color-boton-default-hover);
-  }
+.panel-control-input:hover,
+.panel-control-input:focus {
+  background-color: var(--color-boton-default-hover);
+}
 
+/****************************************************
+BOTONES
+*************************************************** */
 
-  /* Botón */
-
-
+.boton {
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+  font-size: 14px;
+  cursor: pointer;
+}
   
-  .boton {
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-    border-radius: var(--border-radius);
-    transition: background-color 0.2s;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .button-default {
-    background-color: var(--color-boton-default);
-  }
+.boton-estandar {
+  background-color: var(--color-boton-default);
+}
 
 .boton-texto:hover,
 .boton-texto:focus,
-.button-default:hover,
-.button-default:focus {
+.boton-estandar:hover,
+.boton-estandar:focus {
   background-color: var(--color-boton-default-hover);
 }
 
@@ -168,9 +155,6 @@ html,
   margin-right: 5px;
   display: block;
 }
-
-  /* Botones */
-
 
 .modo-claro .boton-tema-claro,
 .modo-oscuro .boton-tema-oscuro {
@@ -202,9 +186,46 @@ html,
   margin-right: 0;
 }
 
-  /* Panel Control */
+#boton-estandar-restablecer-filtros {
+  margin-top: 30px;
+}
+
+.panel-botones {
+  justify-content: center;
+}
+
+.panel-boton-cerrar {
+  position: absolute; /* Cambia a absoluto para relacionarlo al contenedor */
+  top: 10px;
+  right: 10px;
+  background-color: var(--color-boton-default);
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  z-index: 20; /* para que esté por encima de otros elementos */
+}
+
+.panel-boton-cerrar:focus,
+.ppanel-boton-cerrar:hover {
+  background-color: var(--color-boton-default-hover);
+}
+
+#boton-descargar-meme {
+  margin-top: 30px;
+  padding: 15px 15px;
+  height: auto;
+  background-color: #2e7d32;
+  color: white;
+}
   
-  /* Por defecto, el panel está oculto */
+#boton-descargar-meme:hover,
+#boton-descargar-meme:focus {
+  background-color: #1b5e20;
+}
+/* ****************************************************
+PANEL DE CONTROL
+*************************************************** */
+/* Por defecto, el panel está oculto */
 
 #panel {
   width: 30%;
@@ -223,24 +244,21 @@ html,
   overflow: auto;
 }
 
-
 .panel-control-checkbox {
   margin-top: 10px;
   font-size: 12px;
 }
 
-.panel-control-slider {
+.panel-control-deslizante {
   margin-top: 15px;
 }
 
-/* los INPUT no es de JS????????????? */
-
-
-.panel-control-slider > input[type='range'] {
+.panel-control-deslizante > input[type='range'] {
   transition: 0.2s;
+  width: 100%;
 }
 
-.panel-control-slider > input[type='range']:focus {
+.panel-control-deslizante > input[type='range']:focus {
   background-color: #9e9e9e;
 }
 
@@ -270,7 +288,6 @@ html,
   box-sizing: border-box;
 }
 
-/* FOCUS no es de JS????????????? */
 .panel-control-color > input[type='color']:focus::-webkit-color-swatch-wrapper {
   background-color: var(--color-boton-default-hover);
 }
@@ -283,160 +300,118 @@ html,
   font-size: 14px;
 }
 
-.panel-control-columns {
+.panel-control-columnas {
   display: flex;
   justify-content: space-between;
 }
 
-.panel-control-columns .panel-control-column {
+.panel-control-columnas .panel-control-columna {
   width: calc(50% - 5px);
   margin-bottom: 0;
 }
 
-
-/* Cuando el panel está visible */
 .panel-visible {
   transform: translateX(0); /* Lo trae de vuelta a la vista */
 }
 
-
-  .panel-titulo{
-    color: var(--color-title-panel);
-    margin-top: 0;
-    margin-bottom: 20px;
-    width: 100%;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  /* .panel-boton-cerrar {
-    position: fixed;
-    top: 15px;
-    left: 873px;
-    border-radius: 3px;
-    cursor: pointer;
-  } */
-  
-/* SOLUCION AI */
-  .panel-boton-cerrar {
-    position: absolute; /* Cambia a absoluto para relacionarlo al contenedor */
-    top: 10px;
-    right: 10px;
-    background-color: var(--color-boton-default);
-    padding: 5px 10px;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    z-index: 20; /* Asegúrate de que esté por encima de otros elementos */
+.panel-titulo{
+  color: var(--color-title-panel);
+  margin-top: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
 }
-/* SOLUCION AI */
-
-  .panel-boton-cerrar:focus,
-  .ppanel-boton-cerrar:hover {
-    background-color: var(--color-boton-default-hover);
-  }
-
-  .panel-control {
-    margin-bottom: 20px;
-  }
   
-  .panel-control-title {
-    color: var(--color-title-control);
-    margin-bottom: 8px;
-    width: 100%;
-    font-size: 12px;
-    margin-top: 0;
-  }
 
 
-  .app-titulo {
-    text-align: center;
-    font-size: 36px;
-    font-weight: 600;
-    margin: 10px;
-    letter-spacing: -1px;
-  }
+.panel-control {
+  margin-bottom: 20px;
+}
+  
+.panel-control-titulo {
+  color: var(--color-title-control);
+  margin-bottom: 8px;
+  width: 100%;
+  font-size: 12px;
+  margin-top: 0;
+}
 
-  .panel-botones {
-    justify-content: center;
-  }
-
-  #texto-superior{
-    top: 0;
-  }
-
-  #texto-inferior {
-    bottom: 0;
-  }
-
-  #imagen-meme {
-    width: 100%;
-    flex-grow: 1;
-    background-size: cover;
-  }
+.app-titulo {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  margin: 10px;
+  letter-spacing: -1px;
+}
 
 
+
+#texto-superior{
+  top: 0;
+}
+
+#texto-inferior {
+  bottom: 0;
+}
+#texto-tamanio-input {
+  width: calc(50% - 2.5px);
+  margin-right: 2.5px;
+}
+
+.boton-alineacion {
+  width: calc(50% - 2.5px);
+  justify-content: space-between;
+  margin-left: 2.5px;
+}
+  
+.boton-alineacion .button {
+  margin: 0;
+  width: calc(100% / 3 - 10px / 3);
+  min-width: 0;
+}
+
+#imagen-meme {
+  width: 100%;
+  flex-grow: 1;
+  background-size: cover;
+}
 
 .boton {
     margin: 0;
     width: calc(100% / 3 - 10px / 3);
     min-width: 0;
-  }
+}
 
-  .canvas-meme {
-    width: 100%;
-    max-width: 610px;
-    height: 610px;
-    background-color: black;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
+.canvas-meme {
+  width: 100%;
+  max-width: 610px;
+  height: 610px;
+  background-color: black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 
-  .texto-meme {
-    width: 100%;
-    background: white;
-    color: black;
-    text-align: center;
-    padding: 35px 50px;
-    font-size: 40px;
-    font-weight: 800;
-    font-family: Verdana;
-  }
+.texto-meme {
+  width: 100%;
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 35px 50px;
+  font-size: 40px;
+  font-weight: 800;
+  font-family: Verdana;
+}
 
-  #boton-descargar-meme {
-    margin-top: 30px;
-    padding: 15px 15px;
-    height: auto;
-    background-color: #2e7d32;
-    color: white;
-  }
+
   
-  #boton-descargar-meme:hover,
-  #boton-descargar-meme:focus {
-    background-color: #1b5e20;
-  }
-  
-  /* #no-outline-button {
-    background-color: #ccc;
-  }
-  
-  #light-outline-button {
-    background-color: #fff;
-    color: black;
-  }
-  
-  #dark-outline-button {
-    background-color: #000;
-    color: white;
-  } */
 
-  /*
-    *********************************** 
-                Utils
-    ***********************************
-  */
+/************************************ 
+UTILIDADES
+************************************/
 
-  /* RESPONSIVE*/
+/* RESPONSIVE*/
 
   @media (max-width: 700px) {
     .app-titulo {
@@ -447,55 +422,18 @@ html,
     }
   }
 
-  @media (min-width: 1300px) {
-    .panel {
-      display: block;
-      box-shadow: none;
-    }
-    /* .panel-boton-cerrar {
-      display: none;
-    } */
+@media (min-width: 1300px) {
+  .panel {
+    display: block;
+    box-shadow: none;
   }
+}
   
-
-
-/* desde aca no esta verificados estilos */
-
-  #text-size-input {
-    width: calc(50% - 2.5px);
-    margin-right: 2.5px;
-  }
-
-
-
-  #default-filters-button {
-    margin-top: 30px;
-  }
-
-
-  .buttons-alignment {
-    width: calc(50% - 2.5px);
-    justify-content: space-between;
-    margin-left: 2.5px;
-  }
+.oculto {
+  display: none;
+}
   
-  .buttons-alignment .button {
-    margin: 0;
-    width: calc(100% / 3 - 10px / 3);
-    min-width: 0;
-  }
-  
-  /*
-    *********************************** 
-                Utils
-    ***********************************
-  */
-  
-  .oculto {
-    display: none;
-  }
-  
-  .flex-container {
-    display: flex;
-    align-items: center;
-  }
+.contenedor-flex{
+  display: flex;
+  align-items: center;
+}
