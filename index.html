@@ -28,7 +28,7 @@ HEADER
   <div class="contenedor-botones panel-botones">
     <button class="boton boton-img" id="panel-img-boton">
       <i class="fas fa-file-image boton-icono-texto" aria-hidden="true"></i>Imagen</button>
-    <button class="boton boton-texto" id="panel-textoo-boton">
+    <button class="boton boton-texto" id="panel-texto-boton">
       <i class="fas fa-font boton-icono-texto" aria-hidden="true"></i>Texto</button>
     <button class="boton boton-texto boton-tema boton-tema-oscuro" id="boton-tema-oscuro" aria-label="Cambiar a modo oscuro">
       <i class="far fa-lightbulb boton-icono-texto" aria-hidden="true"></i>Modo oscuro</button>
@@ -44,7 +44,7 @@ CANVAS
 <div class="editor-contenedor">  
   <main class="meme-contenedor">
     <div class="canvas-meme" id="canvas-meme">
-      <p id="texto-superior" class="texto-meme">TEXTO SUPERIOR</p>
+      <p id="texto-superior" class="texto-meme" >TEXTO SUPERIOR</p>
     <div src="" alt="" id="imagen-meme" aria-label="Imagen de meme"></div>
       <p id="texto-inferior" class="texto-meme">TEXTO INFERIOR</p>
     </div>
@@ -129,7 +129,7 @@ PANEL IMAGEN
         <input type="range" id="deslizante-negativo" min="0" max="1" value="0" step="0.1">
       </div>
     </div>
-    <button class="button boton-estandar" id="boton-estandar-restablecer-filtros">Reestablecer filtros</button>
+    <button class="button boton-estandar" id="boton-estandar-restablecer-filtros">restablecer filtros</button>
   </section>
 <!--
 ***************************************************
@@ -142,14 +142,14 @@ PANEL TEXTO
       <h3 class="panel-control-titulo">SUPERIOR</h3>
       <textarea aria-label="Texto superior" class="panel-control-input" id="texto-superior-input">TEXTO SUPERIOR</textarea>
       <div class="contenedor-flex panel-control-checkbox">
-        <input type="checkbox" id="no-top-text-checkbox"><label for="no-top-text-checkbox">Sin texto superior</label>
+        <input type="checkbox" id="no-texto-superior-checkbox"><label for="no-texto-superior-checkbox">Sin texto superior</label>
       </div>
     </div>
     <div class="panel-control">
       <h3 class="panel-control-titulo">INFERIOR</h3>
-      <textarea aria-label="Texto Inferior" class="panel-control-input"id="texto-inferior-input">TEXTO INFERIOR</textarea>
+      <textarea aria-label="Texto Inferior" class="panel-control-input" id="texto-inferior-input">TEXTO INFERIOR</textarea>
       <div class="contenedor-flex panel-control-checkbox">
-        <input type="checkbox" id="no-bottom-text-checkbox"><label for="no-bottom-text-checkbox">Sin texto inferior</label>
+        <input type="checkbox" id="no-texto-inferior-checkbox"><label for="no-texto-inferior-checkbox">Sin texto inferior</label>
       </div>
     </div>
 <!--
@@ -172,7 +172,7 @@ PANEL TEXTO
     <div class="panel-control">
 <!-- Tamaño-->
       <input type="number" name="Tamaño de fuente" aria-label="Tamaño de fuente" class="panel-control-input" id="texto-tamanio-input" min="12" value="40" />
-<!-- Alineaci´ón-->
+<!-- Alineación-->
      <div class="contenedor-botones boton-alineacion">
         <button class="button boton-estandar" id="boton-alineacion-izquierda" aria-label="Alinear texto a la izquierda"><i class="fas fa-align-left" aria-hidden="true"></i></button>
         <button class="button boton-estandar" id="boton-alineacion-centrada" aria-label="Alinear texto al centro"><i class="fas fa-align-center" aria-hidden="true"></i></button>
@@ -202,9 +202,6 @@ PANEL TEXTO
             </div>
       </div>
     </div>
-    <div class="contenedor-flex panel-control-checkbox">
-      <input type="checkbox" id="texto-no-bg-ckeckbox"><label for="texto-no-bg-ckeckbox">Fondo transparente</label>
-    </div>
 <!--
 [ CONTORNO ]-----------------------
 -->
@@ -216,7 +213,6 @@ PANEL TEXTO
       <button class="button boton-estandar" id="boton-texto-linea-oscuro">Oscuro</button>
     </div>
   </div>
-
  <!--
 [ ESPACIADO ]-----------------------
  -->
@@ -240,7 +236,6 @@ PANEL TEXTO
    </div>
   </section>  
 </aside>
-<!-- TERMINA ASIDE-->
 
 <script src="main.js"></script>
 </body>

@@ -6,8 +6,8 @@ body.modo-oscuro {
   --color-header: #191e2b;
   --color-background: #30343f;
   --color-panel: #252935;
-  --color-boton-default: #393e49;
-  --color-boton-default-hover: #4e5565;
+  --color-boton: #393e49;
+  --color-boton-hover: #4e5565;
   --color-texto: #ffffff;
   --tipografia-primaria: 'Open Sans', sans-serif;
   --border-radius: 3px;
@@ -17,11 +17,11 @@ body.modo-claro {
   --color-header: #e0e0e0;
   --color-background: #eeeeee;
   --color-panel: #fafafa;
-  --color-boton-default: #e0e0e0;
-  --color-boton-default-hover: #bdbdbd;
+  --color-boton: #e0e0e0;
+  --color-boton-hover: #bdbdbd;
   --color-texto: #424242;
-  --color-title-panel: rgb(33 33 33 / 80%);
-  --color-title-control: rgb(33 33 33 / 70%);
+  --color-panel-titulo: rgb(33 33 33 / 80%);
+  --color-control-titulo: rgb(33 33 33 / 70%);
   --tipografia-primaria: 'Open Sans', sans-serif;
   --border-radius: 3px;
 }
@@ -81,15 +81,14 @@ header {
   justify-content: center;
   align-items: center;
   background-color: var(--color-background);
-  padding: 0 20px;
 }
   
 .meme-contenedor.transparente {
-  background-color: transparent; /* Fondo transparente */
+  background-color: transparent;
 }
 
 #panel {
-  width: 260px;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -107,7 +106,7 @@ header {
 .panel-control-input {
   width: 100%;
   height: 36px;
-  background-color: var(--color-boton-default);
+  background-color: var(--color-boton);
   border-radius: var(--border-radius);
   transition: background-color 0.2s;
   padding: 5px 10px;
@@ -116,12 +115,12 @@ header {
   
 .panel-control-input:hover,
 .panel-control-input:focus {
-  background-color: var(--color-boton-default-hover);
+  background-color: var(--color-boton-hover);
 }
 
 /****************************************************
 BOTONES
-*************************************************** */
+****************************************************/
 
 .boton {
   height: 36px;
@@ -136,19 +135,19 @@ BOTONES
 }
   
 .boton-estandar {
-  background-color: var(--color-boton-default);
+  background-color: var(--color-boton);
 }
 
 .boton-texto:hover,
 .boton-texto:focus,
 .boton-estandar:hover,
 .boton-estandar:focus {
-  background-color: var(--color-boton-default-hover);
+  background-color: var(--color-boton-hover);
 }
 
 .boton-img:hover,
 .boton-img:focus {
-  background-color: var(--color-boton-default-hover);
+  background-color: var(--color-boton-hover);
 }
 
 .boton-icono-texto {
@@ -165,7 +164,6 @@ BOTONES
 .modo-claro .boton-tema-oscuro {
   display: none;
 }
-
 
 .contenedor-botones {
   display: flex;
@@ -195,19 +193,19 @@ BOTONES
 }
 
 .panel-boton-cerrar {
-  position: absolute; /* Cambia a absoluto para relacionarlo al contenedor */
+  position: absolute; 
   top: 10px;
   right: 10px;
-  background-color: var(--color-boton-default);
+  background-color: var(--color-boton);
   padding: 5px 10px;
   border-radius: var(--border-radius);
   cursor: pointer;
-  z-index: 20; /* para que esté por encima de otros elementos */
+  z-index: 20;
 }
 
 .panel-boton-cerrar:focus,
 .ppanel-boton-cerrar:hover {
-  background-color: var(--color-boton-default-hover);
+  background-color: var(--color-boton-hover);
 }
 
 #boton-descargar-meme {
@@ -222,7 +220,8 @@ BOTONES
 #boton-descargar-meme:focus {
   background-color: #1b5e20;
 }
-/* ****************************************************
+
+/*****************************************************
 PANEL DE CONTROL
 *************************************************** */
 /* Por defecto, el panel está oculto */
@@ -230,6 +229,7 @@ PANEL DE CONTROL
 #panel {
   width: 30%;
 }
+
 .panel-oculto {
   transform: translateX(100%); /* Mueve el panel fuera de la vista */
   transition: transform 0.3s ease-in-out; /* Animación suave */
@@ -283,13 +283,13 @@ PANEL DE CONTROL
   height: 36px;
   border-radius: 5px;
   padding: 8px 10px;
-  background-color: var(--color-boton-default);
+  background-color: var(--color-boton);
   display: flex;
   box-sizing: border-box;
 }
 
 .panel-control-color > input[type='color']:focus::-webkit-color-swatch-wrapper {
-  background-color: var(--color-boton-default-hover);
+  background-color: var(--color-boton-hover);
 }
 
 .panel-control-color > span {
@@ -315,7 +315,7 @@ PANEL DE CONTROL
 }
 
 .panel-titulo{
-  color: var(--color-title-panel);
+  color: var(--color-panel-titulo);
   margin-top: 0;
   margin-bottom: 20px;
   width: 100%;
@@ -323,14 +323,12 @@ PANEL DE CONTROL
   text-align: center;
 }
   
-
-
 .panel-control {
   margin-bottom: 20px;
 }
   
 .panel-control-titulo {
-  color: var(--color-title-control);
+  color: var(--color-control-titulo);
   margin-bottom: 8px;
   width: 100%;
   font-size: 12px;
@@ -344,8 +342,6 @@ PANEL DE CONTROL
   margin: 10px;
   letter-spacing: -1px;
 }
-
-
 
 #texto-superior{
   top: 0;
@@ -404,28 +400,41 @@ PANEL DE CONTROL
   font-family: Verdana;
 }
 
-
-  
-
-/************************************ 
-UTILIDADES
-************************************/
-
 /* RESPONSIVE*/
 
-  @media (max-width: 700px) {
-    .app-titulo {
-      font-size: 26px;
-    }
-    .panel {
-      width: 100%;
-    }
+@media (max-width: 700px){
+  .header {
+    width: 100%;
+  }
+  .app-titulo {
+    font-size: 26px;
+  }
+  .panel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--color-panel);
+    padding: 30px 15px;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    z-index: 10;
   }
 
-@media (min-width: 1300px) {
-  .panel {
-    display: block;
-    box-shadow: none;
+  .editor-contenedor {
+    display: flex;
+    flex-grow: 1;
+  }
+  .meme-contenedor{
+    width: 320px;
+    display: flex;
+    flex-grow: 1;
+  }
+  #panel {
+    width: 320px;
+
   }
 }
   
