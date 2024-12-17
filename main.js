@@ -27,7 +27,7 @@ const descargarMeme = () => {
 // Cambia al modo oscuro
 const cambiarModoOscuro = () => {
   document.body.classList.remove("modo-claro")
-   document.body.classList.add("modo-oscuro")
+  document.body.classList.add("modo-oscuro")
 }
 
 // Cambia al modo claro
@@ -48,10 +48,11 @@ const inicializar = () => {
 // ***************************************************
 
 /** Carga imagen **/
-const urlInput = document.getElementById('url-img-input')
-const imagenMeme = document.getElementById('imagen-meme')
-  urlInput.addEventListener('input', () => {
-const url = urlInput.value
+const urlInput = $('#url-img-input')
+const imagenMeme = $('#imagen-meme')
+
+urlInput.addEventListener('input', () => {
+  const url = urlInput.value
   imagenMeme.style.backgroundImage = `url(${url})`
   imagenMeme.style.backgroundSize = 'cover' // Para que la imagen se ajuste
   imagenMeme.style.backgroundPosition = 'center' // Centra la imagen
@@ -59,28 +60,47 @@ const url = urlInput.value
 
 /** Actualiza Color Fondo **/
 const actualizarFondo = () => {
-  const colorFondo = document.getElementById("mezcla-color-input").value
-  const modoMezcla = document.getElementById("mezcla-color-selector").value  
-  const imagenMeme = document.getElementById("imagen-meme")
-    imagenMeme.style.backgroundColor = colorFondo // Aplica el color
-    imagenMeme.style.backgroundBlendMode = modoMezcla // Aplica el modo de mezcla
+  const colorFondo = $("#mezcla-color-input").value
+  const modoMezcla = $("#mezcla-color-selector").value  
+  const imagenMeme = $("#imagen-meme")
+  imagenMeme.style.backgroundColor = colorFondo // Aplica el color
+  imagenMeme.style.backgroundBlendMode = modoMezcla // Aplica el modo de mezcla
 }
-document.getElementById("mezcla-color-input")
-document.addEventListener("input", actualizarFondo)
-document.getElementById("mezcla-color-selector")
+
+$("#mezcla-color-input")
+$("#input", actualizarFondo)
+$("#mezcla-color-selector")
 document.addEventListener("change", actualizarFondo)
+
+ /** FONFO TRANSPARENTE Función para actualizar el fondo de texto a transparente **/    
+const actualizarFondoTexto = () => {
+  const transparente = $("#texto-transparente-checkbox").checked
+  const textoSuperior = $("#texto-superior")
+  const textoInferior = $("#texto-inferior")
+  const colorFondo = $("#texto-bg-color-input").value  // Obtener el valor del input de color
+
+  if (transparente) {
+    textoSuperior.style.backgroundColor = "transparent"
+    textoInferior.style.backgroundColor = "transparent"
+  } else {
+    textoSuperior.style.backgroundColor = colorFondo
+    textoInferior.style.backgroundColor = colorFondo
+  }
+}
+$("#texto-transparente-checkbox").addEventListener("change", actualizarFondoTexto)
+
 
 /** Aplicar Filtros **/  
 const aplicarFiltros = () => {
-  const brillo = document.getElementById("deslizante-brillo").value
-  const opacidad = document.getElementById("deslizante-opacidad").value
-  const contraste = document.getElementById("deslizante-contraste").value
-  const saturacion = document.getElementById("deslizante-saturacion").value
-  const desenfoque = document.getElementById("deslizante-desenfoque").value
-  const escalaGrises = document.getElementById("deslizante-grises").value
-  const sepia = document.getElementById("deslizante-sepia").value
-  const hue = document.getElementById("deslizante-hue").value
-  const negativo = document.getElementById("deslizante-negativo").value
+  const brillo = $("#deslizante-brillo").value
+  const opacidad = $("#deslizante-opacidad").value
+  const contraste = $("#deslizante-contraste").value
+  const saturacion = $("#deslizante-saturacion").value
+  const desenfoque = $("#deslizante-desenfoque").value
+  const escalaGrises = $("#deslizante-grises").value
+  const sepia = $("#deslizante-sepia").value
+  const hue = $("#deslizante-hue").value
+  const negativo = $("#deslizante-negativo").value
 
 const filtros = `
   brightness(${brillo})
@@ -93,7 +113,7 @@ const filtros = `
   hue-rotate(${hue}deg)
   invert(${negativo})
     `
-document.getElementById("imagen-meme").style.filter = filtros
+$("#imagen-meme").style.filter = filtros
   }
   
 // Asigna eventos a los sliders
@@ -104,19 +124,19 @@ const sliders = document.querySelectorAll("input[type='range']")
 
 /** Restablecer Filtros **/  
 const restablecerFiltros = () => {
-  document.getElementById("deslizante-brillo").value = 1
-  document.getElementById("deslizante-opacidad").value = 1
-  document.getElementById("deslizante-contraste").value = 100
-  document.getElementById("deslizante-saturacion").value = 100
-  document.getElementById("deslizante-desenfoque").value = 0
-  document.getElementById("deslizante-grises").value = 0
-  document.getElementById("deslizante-sepia").value = 0
-  document.getElementById("deslizante-hue").value = 0
-  document.getElementById("deslizante-negativo").value = 0
+  $("#deslizante-brillo").value = 1
+  $("#deslizante-opacidad").value = 1
+  $("#deslizante-contraste").value = 100
+  $("#deslizante-saturacion").value = 100
+  $("#deslizante-desenfoque").value = 0
+  $("#deslizante-grises").value = 0
+  $("#deslizante-sepia").value = 0
+  $("#deslizante-hue").value = 0
+  $("#deslizante-negativo").value = 0
   aplicarFiltros();
 }
 
-document.getElementById("boton-estandar-restablecer-filtros").addEventListener("click", restablecerFiltros)
+$("#boton-estandar-restablecer-filtros").addEventListener("click", restablecerFiltros)
 
 // ***************************************************
 //                  TEXTO
@@ -124,54 +144,49 @@ document.getElementById("boton-estandar-restablecer-filtros").addEventListener("
 
 /** TEXTO SUPERIOR Función para actualizar el texto superior **/  
 const actualizarTextoSuperior = () => {
-  const inputTextoSuperior = document.getElementById("texto-superior-input").value
-  const textoSuperior = document.getElementById("texto-superior")
-   textoSuperior.textContent = inputTextoSuperior // Actualiza el texto
+  const inputTextoSuperior = $("#texto-superior-input").value
+  const textoSuperior = $("#texto-superior")
+  textoSuperior.textContent = inputTextoSuperior // Actualiza el texto
   }
   
-document.getElementById("texto-superior-input")
-document.addEventListener("input", actualizarTextoSuperior)
+$("#texto-superior-input") .addEventListener("input", actualizarTextoSuperior)
 
 
 /** Función para mostrar u ocultar el texto superior **/   
 const toggleTextoSuperior = () => {
-  const checkbox = document.getElementById("no-texto-superior-checkbox").checked
-  const textoSuperior = document.getElementById("texto-superior")
+  const checkbox = $("#no-texto-superior-checkbox").checked
+  const textoSuperior = $("#texto-superior")
   textoSuperior.style.display = checkbox ? "none" : "block" // Ocultar o mostrar
 }
   
-document.getElementById("no-texto-superior-checkbox")
-document.addEventListener("change", toggleTextoSuperior)
+$("#no-texto-superior-checkbox") .addEventListener("change", toggleTextoSuperior)
 
 
 /** TEXTO INFERIOR función para actualizar el texto inferior **/   
 const actualizarTextoInferior = () => {
-  const inputTextoInferior = document.getElementById("texto-inferior-input").value
-  const textoInferior = document.getElementById("texto-inferior")
-  textoInferior.textContent = inputTextoInferior; // Actualiza el texto
+  const inputTextoInferior = $("#texto-inferior-input").value
+  const textoInferior = $("#texto-inferior")
+  textoInferior.textContent = inputTextoInferior // Actualiza el texto
 }
   
-document.getElementById("texto-inferior-input")
-document.addEventListener("input", actualizarTextoInferior)
+$("#texto-inferior-input") .addEventListener("input", actualizarTextoInferior)
 
 /** Función para mostrar u ocultar el texto inferior **/    
 const toggleTextoInferior = () => {
-  const checkbox = document.getElementById("no-texto-inferior-checkbox").checked
-  const textoInferior = document.getElementById("texto-inferior")
+  const checkbox = $("#no-texto-inferior-checkbox").checked
+  const textoInferior = $("#texto-inferior")
   textoInferior.style.display = checkbox ? "none" : "block" // Ocultar o mostrar
 }
 
-document.getElementById("no-texto-inferior-checkbox")
-document.addEventListener("change", toggleTextoInferior)
+$("#no-texto-inferior-checkbox") .addEventListener("change", toggleTextoInferior)
 
 /** ESTILOS DE TEXTO Función para actualizar estilos de texto **/   
 const actualizarEstilosTexto = () => {
-  const fuente = document.getElementById("texto-fuente-seleccion").value
-  const tamanio = document.getElementById("texto-tamanio-input").value + "px"
-  const color = document.getElementById("texto-color-input").value
-  const fondoColor = document.getElementById("texto-bg-color-input").value
-
-  const textos = [document.getElementById("texto-superior"), document.getElementById("texto-inferior")]
+  const fuente = $("#texto-fuente-seleccion").value
+  const tamanio = $("#texto-tamanio-input").value + "px"
+  const color = $("#texto-color-input").value
+  const fondoColor = $("#texto-bg-color-input").value
+  const textos = [$("#texto-superior"), $("#texto-inferior")]
   textos.forEach((texto) => {
     texto.style.fontFamily = fuente
     texto.style.fontSize = tamanio
@@ -180,100 +195,92 @@ const actualizarEstilosTexto = () => {
   })
 }
 
-document.getElementById("texto-fuente-seleccion").addEventListener("change", actualizarEstilosTexto)
-document.getElementById("texto-tamanio-input").addEventListener("input", actualizarEstilosTexto)
-document.getElementById("texto-color-input").addEventListener("input", actualizarEstilosTexto)
-document.getElementById("texto-bg-color-input").addEventListener("input", actualizarEstilosTexto)
+$("#texto-fuente-seleccion").addEventListener("change", actualizarEstilosTexto)
+$("#texto-tamanio-input").addEventListener("input", actualizarEstilosTexto)
+$("#texto-color-input").addEventListener("input", actualizarEstilosTexto)
+$("#texto-bg-color-input").addEventListener("input", actualizarEstilosTexto)
 
 /** ALINEACION DE TEXTO Función para actualizar la alineacion de texto **/   
 const alinearTexto = (alineacion) => {
-  const textos = [document.getElementById("texto-superior"), document.getElementById("texto-inferior")]
+  const textos = [$("#texto-superior"), $("#texto-inferior")]
   textos.forEach((texto) => {
     texto.style.textAlign = alineacion
   })
 }
 
-document.getElementById("boton-alineacion-izquierda").addEventListener("click", () => alinearTexto("left"))
-document.getElementById("boton-alineacion-centrada").addEventListener("click", () => alinearTexto("center"))
-document.getElementById("boton-alineacion-derecha").addEventListener("click", () => alinearTexto("right"))
+$("#boton-alineacion-izquierda").addEventListener("click", () => alinearTexto("left"))
+$("#boton-alineacion-centrada").addEventListener("click", () => alinearTexto("center"))
+$("#boton-alineacion-derecha").addEventListener("click", () => alinearTexto("right"))
 
 /** CONTORNO DE TEXTO Función para actualizar el contorno de texto **/   
 const aplicarContornoTexto = (tipoContorno) => {
-const textos = [
-  document.getElementById("texto-superior"),
-  document.getElementById("texto-inferior"),
-]
+  const textos = [
+    $("#texto-superior"),
+    $("#texto-inferior"),
+  ]
 
-textos.forEach((texto) => {
-  if (tipoContorno === "ninguno") {
-    texto.style.webkitTextStroke = "0px" // Sin contorno
+  textos.forEach((texto) => {
+    if (tipoContorno === "ninguno") {
+      texto.style.webkitTextStroke = "0px" // Sin contorno
     } else if (tipoContorno === "claro") {
-    texto.style.webkitTextStroke = "1px white" // Contorno blanco
+      texto.style.webkitTextStroke = "1px white" // Contorno blanco
     } else if (tipoContorno === "oscuro") {
-    texto.style.webkitTextStroke = "1px black" // Contorno negro
+      texto.style.webkitTextStroke = "1px black" // Contorno negro
     }
   })
 }
 
-document
-  .getElementById("boton-texto-no-linea")
-  .addEventListener("click", () => aplicarContornoTexto("ninguno"))
-
-document
-  .getElementById("boton-texto-linea-claro")
-  .addEventListener("click", () => aplicarContornoTexto("claro"))
-
-document
-  .getElementById("boton-texto-linea-oscuro")
-  .addEventListener("click", () => aplicarContornoTexto("oscuro"))
+$("#boton-texto-no-linea").addEventListener("click", () => aplicarContornoTexto("ninguno"))
+$("#boton-texto-linea-claro") .addEventListener("click", () => aplicarContornoTexto("claro"))
+$("#boton-texto-linea-oscuro") .addEventListener("click", () => aplicarContornoTexto("oscuro"))
 
 /** ESPACIADO DE TEXTO Función para actualizar el espacio de texto **/  
 const actualizarEspaciado = () => {
-  const espaciado = document.getElementById("espaciado-input").value
-  document.getElementById("texto-superior").style.padding = `${espaciado}px 50px`
-  document.getElementById("texto-inferior").style.padding = `${espaciado}px 50px`
+  const espaciado = $("#espaciado-input").value
+  $("#texto-superior").style.padding = `${espaciado}px 50px`
+  $("#texto-inferior").style.padding = `${espaciado}px 50px`
 }
 
-document.getElementById("espaciado-input").addEventListener("input", actualizarEspaciado)
+$("#espaciado-input") .addEventListener("input", actualizarEspaciado)
 
 /** INTERLINEADO DE TEXTO Función para actualizar el interlineado de texto **/  
 const actualizarInterlineado = () => {
-  const interlineado = document.getElementById("line-height-input").value;
-  document.getElementById("texto-superior").style.lineHeight = interlineado
-  document.getElementById("texto-inferior").style.lineHeight = interlineado
+  const interlineado = $("#interlineado-input").value
+  $("#texto-superior").style.lineHeight = interlineado
+  $("#texto-inferior").style.lineHeight = interlineado
 }
 
-document.getElementById("line-height-input").addEventListener("change", actualizarInterlineado)
+$("#interlineado-input") .addEventListener("change", actualizarInterlineado)
 
 // ***************************************************
 //                 ASIDE -  PANELES
 // ***************************************************
   
 // Obtener referencias de los elementos
-  const botonImg = document.getElementById('panel-img-boton')
-  const botonTexto = document.getElementById('panel-texto-boton')
-  const panel = document.getElementById('panel')
-  const panelImg = document.getElementById('panel-img')
-  const panelText = document.getElementById('panel-texto')
-  const botonCerrar = document.getElementById('panel-boton-cerrar')
+const botonImg = $("#panel-img-boton")
+const botonTexto = $("#panel-texto-boton")
+const panel = $("#panel")
+const panelImg = $("#panel-img")
+const panelText = $("#panel-texto")
+const botonCerrar = $("#panel-boton-cerrar")
   
 // Mostrar el panel de imagen
-botonImg.addEventListener('click', () => {
-  panel.classList.remove('panel-oculto')
-  panelImg.classList.remove('oculto')
-  panelText.classList.add('oculto')
+botonImg.addEventListener("click", () => {
+  panel.classList.remove("panel-oculto")
+  panelImg.classList.remove("oculto")
+  panelText.classList.add("oculto")
 })
   
 // Mostrar el panel de texto
-botonTexto.addEventListener('click', () => {
-  panel.classList.remove('panel-oculto')
-  panelText.classList.remove('oculto')
-  panelImg.classList.add('oculto')
+botonTexto.addEventListener("click", () => {
+  panel.classList.remove("panel-oculto")
+  panelText.classList.remove("oculto")
+  panelImg.classList.add("oculto")
 })
 
 // Cerrar el panel
-botonCerrar.addEventListener('click', () => {
-  panel.classList.add('panel-oculto')
+botonCerrar.addEventListener("click", () => {
+  panel.classList.add("panel-oculto")
 })
   
 // Iniciar cuando el DOM esté cargado

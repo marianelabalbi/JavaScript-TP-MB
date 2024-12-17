@@ -5,15 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Genera tu meme con una imagen y descargala para usarla"> <!-- breve descripción del contenido de la página web para los motores de búsqueda (SEO) y las redes sociales. -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-    rel="stylesheet"> <!-- para iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"> <!-- para iconos -->
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>  <!-- sugerencia AI -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script><!-- sugerencia AI -->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <title>Editor de memes MB</title>
 </head>
 
@@ -200,8 +197,12 @@ PANEL TEXTO
               <input name="Color de fondo de texto" type="color" id="texto-bg-color-input" value="#FFFFFF" aria-label="Color de fondo de texto" />
               <span id="texto-bg-color" aria-hidden="true">#FFFFFF</span>
             </div>
+            <div class="panel-control-checkbox">
+              <input type="checkbox" id="texto-transparente-checkbox">
+              <label for="texto-transparente-checkbox">Fondo transparente</label>
+            </div>
       </div>
-    </div>
+    </div>    
 <!--
 [ CONTORNO ]-----------------------
 -->
@@ -225,7 +226,7 @@ PANEL TEXTO
 -->
   <div class="panel-control">
     <h3 class="panel-control-titulo">INTERLINEADO</h3>
-    <select id="line-height-input" class="panel-control-input" aria-label="Interlineado">
+    <select id="interlineado-input" class="panel-control-input" aria-label="Interlineado">
       <option value="0.8">0.8</option>
       <option value="1">1</option>
       <option value="1.2" selected>1.2</option>

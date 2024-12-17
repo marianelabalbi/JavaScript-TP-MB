@@ -1,6 +1,6 @@
-/* ****************************************************
+/*****************************************************
 VARIABLES
-*************************************************** */
+*****************************************************/
 
 body.modo-oscuro {
   --color-header: #191e2b;
@@ -26,9 +26,9 @@ body.modo-claro {
   --border-radius: 3px;
 }
 
-/* ****************************************************
+/*****************************************************
 HTML
-*************************************************** */
+*****************************************************/
 
 html,
   body {
@@ -83,40 +83,6 @@ header {
   background-color: var(--color-background);
 }
   
-.meme-contenedor.transparente {
-  background-color: transparent;
-}
-
-#panel {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: var(--color-panel);
-  padding: 30px 15px;
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  right: 0;
-  box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}
-
-.panel-control-input {
-  width: 100%;
-  height: 36px;
-  background-color: var(--color-boton);
-  border-radius: var(--border-radius);
-  transition: background-color 0.2s;
-  padding: 5px 10px;
-  margin-bottom: 5px;
-}
-  
-.panel-control-input:hover,
-.panel-control-input:focus {
-  background-color: var(--color-boton-hover);
-}
 
 /****************************************************
 BOTONES
@@ -223,11 +189,38 @@ BOTONES
 
 /*****************************************************
 PANEL DE CONTROL
-*************************************************** */
+****************************************************/
 /* Por defecto, el panel está oculto */
 
 #panel {
   width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--color-panel);
+  padding: 30px 15px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.panel-control-input {
+  width: 100%;
+  height: 36px;
+  background-color: var(--color-boton);
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+  
+.panel-control-input:hover,
+.panel-control-input:focus {
+  background-color: var(--color-boton-hover);
 }
 
 .panel-oculto {
@@ -314,7 +307,7 @@ PANEL DE CONTROL
   transform: translateX(0); /* Lo trae de vuelta a la vista */
 }
 
-.panel-titulo{
+.panel-titulo {
   color: var(--color-panel-titulo);
   margin-top: 0;
   margin-bottom: 20px;
@@ -343,13 +336,14 @@ PANEL DE CONTROL
   letter-spacing: -1px;
 }
 
-#texto-superior{
+#texto-superior {
   top: 0;
 }
 
 #texto-inferior {
   bottom: 0;
 }
+
 #texto-tamanio-input {
   width: calc(50% - 2.5px);
   margin-right: 2.5px;
